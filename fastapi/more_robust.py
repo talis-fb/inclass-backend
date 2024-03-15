@@ -8,13 +8,13 @@ BANCO_DE_DADOS = [
 
 app = FastAPI()
 
-@app.get("/user/{id}")
+@app.get("/users/{id}")
 def get_user(id: int):
     for user in BANCO_DE_DADOS:
         if user["id"] == id:
             return user
 
-@app.post("/user/{name}")
+@app.post("/users/{name}")
 def create_user(name: str):
     new_id = len(BANCO_DE_DADOS) + 1
     new_user = {
@@ -28,7 +28,7 @@ def create_user(name: str):
         "id": new_id
     }
 
-@app.put("/user/{id}")
+@app.put("/users/{id}")
 def update_user(id: int, item: str):
     for user in BANCO_DE_DADOS:
         if user["id"] == id:

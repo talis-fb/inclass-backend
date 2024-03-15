@@ -1,0 +1,1 @@
+uvicorn basic:app
